@@ -28,7 +28,7 @@ namespace metafun
         static_assert(std::is_same_v<void, Add_Lvalue_Reference<void>::type>);
         static_assert(std::is_same_v<int&, Add_Lvalue_Reference<int>::type>);
 
-        std::puts("test passed");
+        std::puts("test passed :)");
     }
 
 
