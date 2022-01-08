@@ -11,6 +11,7 @@
 #Clion specific
 cmake-build-debug
 cmake-build-release
+cmake-build-*
 #typical Cmake build
 build
 #vs cmake builds
