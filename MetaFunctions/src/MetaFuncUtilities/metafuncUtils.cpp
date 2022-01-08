@@ -31,11 +31,17 @@ namespace metafun
 
         std::puts("test passed :)");
     }
-}
 
-void voidtCornerCases()
-{
-    std::puts("--voidtCornerCases--");
 
-}
+    void voidtCornerCases()
+    {
+        std::puts("--voidtCornerCases--");
+        func<One>();
+        func<Two>();
+        std::puts("test passed :)");
+    }
+} // end of namespace
+
+
+
 

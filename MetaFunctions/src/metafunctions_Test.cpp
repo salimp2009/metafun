@@ -3,5 +3,6 @@
 int main()
 {
     metafun::voidTest();
+    metafun::voidtCornerCases();
 
 }

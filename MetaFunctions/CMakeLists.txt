@@ -72,7 +72,10 @@ target_include_directories(metafunctionsPCH  INTERFACE
 
 add_library(metaFunLib
         src/MetaFuncUtilities/metafuncUtils.hpp
-        src/MetaFuncUtilities/metafuncUtils.cpp src/MetaFuncUtilities/VoidtCornerCases.hpp)
+        src/MetaFuncUtilities/metafuncUtils.cpp
+        src/MetaFuncUtilities/VoidtCornerCases.hpp
+        src/MetaFuncUtilities/metaLinearSearch.hpp
+)
 
 target_include_directories(metaFunLib PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/src/")
 target_link_libraries(metaFunLib PRIVATE metafunctionsPCH)
