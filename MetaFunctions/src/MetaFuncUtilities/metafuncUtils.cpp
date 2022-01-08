@@ -1,8 +1,11 @@
 //
 // Created by salim on 06/01/2022.
 //
+#include "metafunctionsPCH.hpp"
 #include "metafuncUtils.hpp"
 #include "VoidtCornerCases.hpp"
+#include "metaLinearSearch.hpp"
+
 
 namespace metafun
 {
@@ -40,7 +43,41 @@ namespace metafun
         func<Two>();
         std::puts("test passed :)");
     }
-} // end of namespace
+
+    void recursiveFind_LinearSearch()
+    {
+        std::puts("--recursiveFind_LinearSearch--");
+
+        static_assert(recursive_IsInpack<int, float, double, double, double, int>::value);
+        static_assert(! recursive_IsInpack<int, float, double, double, double, std::string>::value);
+        auto result = recursive_IsInpack<int, float, double, double, double, int>::value;
+        std::printf("result of recursive_pack: %s \n", (result) ? "true": "false");
+        std::puts("test passed :)");
+
+      const auto result2 =  []<std::size_t...Idx>(std::index_sequence<Idx...>) consteval
+        {
+            constexpr auto resultTrue = recursive_IsInpack<int, decltype(Idx)..., int>::value;
+            constexpr auto resultFalse = recursive_IsInpack<int, decltype(Idx)...>::value;
+            return std::pair{resultTrue, resultFalse};
+
+        }(std::make_index_sequence<200>{});
+
+        std::printf("result of true case: recursive_pack: %s \n", (result2.first) ? "true": "false");
+        std::printf("result of false case: recursive_pack: %s \n", (result2.second) ? "true": "false");
+
+        // false case test
+        const auto result3 = recursiveFind<int, 200, std::string>();
+        std::printf("result of true case: recursive_pack: %s \n", (result3) ? "true": "false");
+
+        // true case test; default value for Sentinel is int
+        const auto result4 = recursiveFind<int, 200>();
+        std::printf("result of true case: recursive_pack: %s \n", (result4) ? "true": "false");
+
+    }
+
+
+
+    } // end of namespace
 
 
 

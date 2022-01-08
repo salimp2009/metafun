@@ -11,6 +11,7 @@ namespace metafun
 {
     void voidTest();
     void voidtCornerCases();
+    void recursiveFind_LinearSearch();
 
     template<typename T>
     struct TypeIdentity {using type = T;};

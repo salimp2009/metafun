@@ -5,6 +5,7 @@
 #ifndef METAFUN_VOIDTCORNERCASES_HPP
 #define METAFUN_VOIDTCORNERCASES_HPP
 
+#include "metafunctionsPCH.hpp"
 #include "metafuncUtils.hpp"
 
 
