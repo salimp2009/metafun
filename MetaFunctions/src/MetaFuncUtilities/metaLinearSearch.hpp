@@ -10,7 +10,6 @@
 namespace metafun
 {
 // Recursive Find
-
 template<typename TargetT, typename... Ts>
 struct recursive_IsInpack : std::false_type {};
 
@@ -33,8 +32,38 @@ consteval  bool recursiveFind()
 }
 
 
+// 2nd example for Linear search using function pointers for each given type
+template<typename... Ts>
+static constexpr std::string_view nameof()
+{
+    return std::string_view(__PRETTY_FUNCTION__ );
+}
 
+template<typename... Ts>
+struct IsInPack
+{
+    using Fn = std::string_view(*)();
+    static constexpr Fn typeIDs[] = {nameof<Ts>...};
+    static constexpr auto contains(Fn target)
+    {
 
+     #if __cplusplus > 201703L
+        // if C++20
+           if(std::ranges::find(typeIDs, target) != std::ranges::end(typeIDs))
+           {
+               return true;
+           }
+           return false;
+     #else
+        // if not C++20
+            for(auto&& elem : typeIDs)
+            {
+                if(elem == target) { return true;}
+            }
+        return false
+     #endif
+    }
+};
 
 
 

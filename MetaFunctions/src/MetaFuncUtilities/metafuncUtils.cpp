@@ -75,6 +75,20 @@ namespace metafun
 
     }
 
+    void LinearSearch_UsingFunctionPointers()
+    {
+        std::puts("--------------------------------------");
+        std::puts("--LinearSearch_UsingFunctionPointers--");
+        IsInPack<int, char, double, float, std::string> typePack{};
+        auto result = typePack.contains(nameof<int>);
+        std::printf("IsInPack contains int: (expected true): %s \n", result ? "true": "false");
+        result = typePack.contains((nameof<unsigned>));
+        std::printf("IsInPack contains int: (expected false): %s \n", result ? "true": "false");
+        result = typePack.contains((nameof<std::vector<int>>));
+        std::printf("IsInPack contains int: (expected false): %s \n", result ? "true": "false");
+        std::puts("--------------------------------------");
+    }
+
 
 
     } // end of namespace
