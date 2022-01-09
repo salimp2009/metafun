@@ -13,6 +13,7 @@ namespace metafun
     void voidtCornerCases();
     void recursiveFind_LinearSearch();
     void LinearSearch_UsingFunctionPointers();
+    void SearchWithInheritance();
 
     template<typename T>
     struct TypeIdentity {using type = T;};

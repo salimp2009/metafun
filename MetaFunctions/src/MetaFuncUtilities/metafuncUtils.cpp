@@ -5,6 +5,7 @@
 #include "metafuncUtils.hpp"
 #include "VoidtCornerCases.hpp"
 #include "metaLinearSearch.hpp"
+#include "metaInheritanceSearch.hpp"
 
 
 namespace metafun
@@ -89,10 +90,12 @@ namespace metafun
         std::puts("--------------------------------------");
     }
 
+    void SearchWithInheritance()
+    {
+        std::puts("---------------------------");
+        std::puts("--SearchWithInheritance--");
+
+    }
 
 
     } // end of namespace
-
-
-
-

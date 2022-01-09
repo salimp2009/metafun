@@ -39,6 +39,7 @@ static constexpr std::string_view nameof()
     return std::string_view(__PRETTY_FUNCTION__ );
 }
 
+
 template<typename... Ts>
 struct IsInPack
 {

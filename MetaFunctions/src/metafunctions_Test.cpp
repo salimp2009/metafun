@@ -6,5 +6,6 @@ int main()
     metafun::voidtCornerCases();
     metafun::recursiveFind_LinearSearch();
     metafun::LinearSearch_UsingFunctionPointers();
+    metafun::SearchWithInheritance();
 
 }
