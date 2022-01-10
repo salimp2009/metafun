@@ -17,8 +17,8 @@ namespace metafun
     template<typename T>
     static constexpr auto check(void const*)->std::false_type { return {};};
 
-    template<typename... Ts>
-    struct IsInPackImpl:TypeIdentity<Ts>...{};
+     template<typename... Ts>
+    struct IsInPackImpl: TypeIdentity<Ts>...{};
 
     template<typename TargetT, typename... Ts>
     using IsInPack_Inherit = decltype(check<TargetT>(static_cast<IsInPackImpl<Ts...>*>(nullptr)));

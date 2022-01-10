@@ -61,21 +61,21 @@ namespace metafun
             constexpr auto resultFalse = recursive_IsInpack<int, decltype(Idx)...>::value;
             return std::pair{resultTrue, resultFalse};
 
-        }(std::make_index_sequence<200>{});
+        }(std::make_index_sequence<3>{});
 
         std::printf("result of true case: recursive_pack: %s \n", (result2.first) ? "true": "false");
         std::printf("result of false case: recursive_pack: %s \n", (result2.second) ? "true": "false");
 
         // false case test
-        const auto result3 = recursiveFind<int, 200, std::string>();
+        const auto result3 = recursiveFind<int, 5, std::string>();
         std::printf("result of true case: recursive_pack: %s \n", (result3) ? "true": "false");
 
         // true case test; default value for Sentinel is int
-        const auto result4 = recursiveFind<int, 200>();
+        const auto result4 = recursiveFind<int, 3>();
         std::printf("result of true case: recursive_pack: %s \n", (result4) ? "true": "false");
-
     }
 
+    //
     void LinearSearch_UsingFunctionPointers()
     {
         std::puts("--------------------------------------");
@@ -92,9 +92,15 @@ namespace metafun
 
     void SearchWithInheritance()
     {
-        std::puts("---------------------------");
+        std::puts("--------------------------------------");
         std::puts("--SearchWithInheritance--");
+        constexpr auto result1 = IsInPack_Inherit<int, char, float, double, int>{}.value;
+        std::printf("IsInPack with Inheritance test: (expected true): %s \n", result1 ? "true": "false");
 
+        constexpr auto result2 = IsInPack_Inherit<int, char, float, double, std::string>{}.value;
+        std::printf("IsInPack with Inheritance test: (expected false): %s \n", result2 ? "true": "false");
+
+        std::puts("--------------------------------------");
     }
 
 
