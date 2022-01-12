@@ -103,5 +103,17 @@ namespace metafun
         std::puts("--------------------------------------");
     }
 
+    void SearchWithInheritance_Inst()
+    {
+        std::puts("--------------------------------------");
+        std::puts("--SearchWithInheritance_Inst--");
+        constexpr auto result1 = IsInPack_Inherit_Inst<int, char, float, double, int>{}.value;
+        std::printf("IsInPack_Inherit_Inst test: (expected true): %s \n", result1 ? "true": "false");
+
+        constexpr auto result2 = IsInPack_Inherit_Inst<int, char, float, double, std::string>{}.value;
+        std::printf("IsInPack_Inherit_Inst test: (expected false): %s \n", result2 ? "true": "false");
+
+        std::puts("--------------------------------------");
+    }
 
     } // end of namespace

@@ -7,5 +7,6 @@ int main()
     metafun::recursiveFind_LinearSearch();
     metafun::LinearSearch_UsingFunctionPointers();
     metafun::SearchWithInheritance();
+    metafun::SearchWithInheritance_Inst();
 
 }

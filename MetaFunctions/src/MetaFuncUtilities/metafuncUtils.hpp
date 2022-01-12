@@ -14,6 +14,7 @@ namespace metafun
     void recursiveFind_LinearSearch();
     void LinearSearch_UsingFunctionPointers();
     void SearchWithInheritance();
+    void SearchWithInheritance_Inst();
 
     template<typename T>
     struct TypeIdentity {using type = T;};
