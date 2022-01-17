@@ -81,12 +81,13 @@ namespace metafun
     {
         std::puts("--------------------------------------");
         std::puts("--LinearSearch_UsingFunctionPointers--");
-        IsInPack<int, char, double, float, std::string> typePack{};
-        auto result = typePack.contains(nameof<int>);
+        using typePack = IsInPack<int, char, double, float, std::string>;
+        auto result = IsInPack<int, char, double, float, std::string>::contains(nameof<int>);
+       // auto result = typePack.contains(nameof<int>);
         std::printf("IsInPack contains int: (expected true): %s \n", result ? "true": "false");
-        result = typePack.contains((nameof<unsigned>));
+        result = typePack::contains((nameof<unsigned>));
         std::printf("IsInPack contains int: (expected false): %s \n", result ? "true": "false");
-        result = typePack.contains((nameof<std::vector<int>>));
+        result = typePack::contains((nameof<std::vector<int>>));
         std::printf("IsInPack contains int: (expected false): %s \n", result ? "true": "false");
         std::puts("--------------------------------------");
     }
@@ -95,10 +96,10 @@ namespace metafun
     {
         std::puts("--------------------------------------");
         std::puts("--SearchWithInheritance--");
-        constexpr auto result1 = IsInPack_Inherit<int, char, float, double, int>{}.value;
+        constexpr auto result1 = IsInPack_Inherit<int, char, float, double, int>::value;
         std::printf("IsInPack with Inheritance test: (expected true): %s \n", result1 ? "true": "false");
 
-        constexpr auto result2 = IsInPack_Inherit<int, char, float, double, std::string>{}.value;
+        constexpr auto result2 = IsInPack_Inherit<int, char, float, double, std::string>::value;
         std::printf("IsInPack with Inheritance test: (expected false): %s \n", result2 ? "true": "false");
 
         std::puts("--------------------------------------");
@@ -108,10 +109,10 @@ namespace metafun
     {
         std::puts("--------------------------------------");
         std::puts("--SearchWithInheritance_Inst--");
-        constexpr auto result1 = IsInPack_Inherit_Inst<int, char, float, double, int>{}.value;
+        constexpr auto result1 = IsInPack_Inherit_Inst<int, char, float, double, int>::value;
         std::printf("IsInPack_Inherit_Inst test: (expected true): %s \n", result1 ? "true": "false");
 
-        constexpr auto result2 = IsInPack_Inherit_Inst<int, char, float, double, std::string>{}.value;
+        constexpr auto result2 = IsInPack_Inherit_Inst<int, char, float, double, std::string>::value;
         std::printf("IsInPack_Inherit_Inst test: (expected false): %s \n", result2 ? "true": "false");
 
         std::puts("--------------------------------------");
@@ -128,6 +129,12 @@ namespace metafun
 
         constexpr auto result2 = IsInPack_Inherit_Struct<int, char, std::byte, float, double>::value;
         std::printf("IsInPack_Inherit_Struct test: (expected false): %s \n", result2 ? "true": "false");
+
+        constexpr auto result3 = IsInPack_IsBaseof<int, char, std::byte, float, double, int>::value;
+        std::printf("IsInPack_Inherit_IsBaseof test: (expected true): %s \n", result3 ? "true": "false");
+
+        constexpr auto result4 = IsInPack_IsBaseof<int, char, std::byte, float, double>::value;
+        std::printf("IsInPack_Inherit_IsBaseof test: (expected false): %s \n", result4 ? "true": "false");
 
         std::puts("--------------------------------------");
     }

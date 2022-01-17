@@ -24,8 +24,8 @@ namespace  metafun
     template<typename TargetT, typename...Ts>
     using IsInPack_Inherit_Struct = decltype(IsInPackImpl2<Ts...>::template check<TargetT>(IsInPackImpl2<Ts...>{}));
 
-
-
+    template<typename TargetT, typename... Ts>
+    using IsInPack_IsBaseof = std::is_base_of<TypeIdentity<TargetT>, IsInPackImpl2<Ts...>>;
 
 
 } // end of namespace
