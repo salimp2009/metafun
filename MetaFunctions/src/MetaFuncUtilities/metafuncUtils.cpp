@@ -6,6 +6,7 @@
 #include "VoidtCornerCases.hpp"
 #include "metaLinearSearch.hpp"
 #include "metaInheritanceSearch.hpp"
+#include "InheritanceSearchStruct.hpp"
 
 
 namespace metafun
@@ -63,16 +64,16 @@ namespace metafun
 
         }(std::make_index_sequence<3>{});
 
-        std::printf("result of true case: recursive_pack: %s \n", (result2.first) ? "true": "false");
-        std::printf("result of false case: recursive_pack: %s \n", (result2.second) ? "true": "false");
+        std::printf("result2 of true case: recursive_pack: %s \n", (result2.first) ? "true": "false");
+        std::printf("result2 of false case: recursive_pack: %s \n", (result2.second) ? "true": "false");
 
         // false case test
         const auto result3 = recursiveFind<int, 5, std::string>();
-        std::printf("result of true case: recursive_pack: %s \n", (result3) ? "true": "false");
+        std::printf("result3 of false case: recursive_pack: %s \n", (result3) ? "true": "false");
 
         // true case test; default value for Sentinel is int
         const auto result4 = recursiveFind<int, 3>();
-        std::printf("result of true case: recursive_pack: %s \n", (result4) ? "true": "false");
+        std::printf("result4 of true case: recursive_pack: %s \n", (result4) ? "true": "false");
     }
 
     //
@@ -112,6 +113,21 @@ namespace metafun
 
         constexpr auto result2 = IsInPack_Inherit_Inst<int, char, float, double, std::string>{}.value;
         std::printf("IsInPack_Inherit_Inst test: (expected false): %s \n", result2 ? "true": "false");
+
+        std::puts("--------------------------------------");
+    }
+
+
+    void SearchWithInheritance_Struct()
+    {
+        std::puts("--------------------------------------");
+        std::puts("--SearchWithInheritance_Struct--");
+
+        constexpr auto result1 = IsInPack_Inherit_Struct<int, char, std::byte, float, int>::value;
+        std::printf("IsInPack_Inherit_Struct test: (expected true): %s \n", result1 ? "true": "false");
+
+        constexpr auto result2 = IsInPack_Inherit_Struct<int, char, std::byte, float, double>::value;
+        std::printf("IsInPack_Inherit_Struct test: (expected false): %s \n", result2 ? "true": "false");
 
         std::puts("--------------------------------------");
     }

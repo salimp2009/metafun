@@ -8,5 +8,6 @@ int main()
     metafun::LinearSearch_UsingFunctionPointers();
     metafun::SearchWithInheritance();
     metafun::SearchWithInheritance_Inst();
+    metafun::SearchWithInheritance_Struct();
 
 }

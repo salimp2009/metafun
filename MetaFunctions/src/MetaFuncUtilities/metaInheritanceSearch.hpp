@@ -36,7 +36,6 @@ namespace metafun
 
 
 
-
 } // end of namespace
 
 #endif //METAFUN_METAINHERITANCESEARCH_HPP

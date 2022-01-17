@@ -31,7 +31,6 @@ consteval  bool recursiveFind()
         }(std::make_index_sequence<Num>{});
 }
 
-
 // 2nd example for Linear search using function pointers for each given type
 template<typename... Ts>
 static constexpr std::string_view nameof()

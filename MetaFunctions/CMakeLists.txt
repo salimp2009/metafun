@@ -75,7 +75,7 @@ add_library(metaFunLib
         src/MetaFuncUtilities/metafuncUtils.cpp
         src/MetaFuncUtilities/VoidtCornerCases.hpp
         src/MetaFuncUtilities/metaLinearSearch.hpp
-        src/MetaFuncUtilities/metaInheritanceSearch.hpp)
+        src/MetaFuncUtilities/metaInheritanceSearch.hpp src/MetaFuncUtilities/InheritanceSearchStruct.hpp)
 
 target_include_directories(metaFunLib PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/src/")
 target_link_libraries(metaFunLib PRIVATE metafunctionsPCH)
