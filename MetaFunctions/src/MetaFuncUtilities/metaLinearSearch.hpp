@@ -27,12 +27,12 @@ consteval  bool recursiveFind()
 {
        return []<std::size_t...Idx>(std::index_sequence<Idx...>)
         {
-           return recursive_IsInpack<TargetT, decltype(Idx)..., SentinelT>::value;
+           return recursive_IsInpack<TargetT, std::integral_constant<char,Idx>..., SentinelT>::value;
         }(std::make_index_sequence<Num>{});
 }
 
 // 2nd example for Linear search using function pointers for each given type
-template<typename... Ts>
+template<typename Ts>
 static constexpr std::string_view nameof()
 {
     return std::string_view(__PRETTY_FUNCTION__ );
