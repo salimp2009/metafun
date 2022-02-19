@@ -157,7 +157,7 @@ namespace metafun
     {
         std::puts("--applyToIndex_Test--");
 
-        apply_to_Index<5>( [](auto&& arg)
+        apply_to_Index<3>( [](auto&& arg)
                           {
                               std::cout<<arg<<'\n';
 

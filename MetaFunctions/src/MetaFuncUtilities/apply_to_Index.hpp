@@ -10,16 +10,15 @@
 
 namespace metafun
 {
-    template<std::size_t Id, typename Fn>
-    constexpr auto apply_to_Index(Fn&& func, auto&&... args)
+    template<std::size_t I=0, typename Fn, typename...Args>
+    requires (I < sizeof...(Args))
+    constexpr auto apply_to_Index(Fn&& func, Args&&... args)
     {
-        const auto Index =std::min(Id, sizeof...(args))-1;
-
         [&]<std::size_t...Idx>( std::index_sequence<Idx...>)
          {
             ([&]()
              {
-                 if constexpr (Idx==Index)
+                 if constexpr (Idx==I)
                  {
                      std::invoke(std::forward<Fn>(func), std::move(args));
                  }
