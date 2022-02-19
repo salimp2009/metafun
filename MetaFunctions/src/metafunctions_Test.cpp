@@ -9,5 +9,7 @@ int main()
     metafun::SearchWithInheritance();
     metafun::SearchWithInheritance_Inst();
     metafun::SearchWithInheritance_Struct();
+    metafun::enumeratePack_Test();
+    metafun::applyToIndex_Test();
 
 }

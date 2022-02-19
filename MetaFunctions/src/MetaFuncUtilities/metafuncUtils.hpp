@@ -16,6 +16,8 @@ namespace metafun
     void SearchWithInheritance();
     void SearchWithInheritance_Inst();
     void SearchWithInheritance_Struct();
+    void enumeratePack_Test();
+    void applyToIndex_Test();
 
     template<typename T>
     struct TypeIdentity {using type = T;};

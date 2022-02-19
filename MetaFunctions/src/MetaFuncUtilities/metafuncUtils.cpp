@@ -7,6 +7,8 @@
 #include "metaLinearSearch.hpp"
 #include "metaInheritanceSearch.hpp"
 #include "InheritanceSearchStruct.hpp"
+#include "enumeratePack.hpp"
+#include "apply_to_Index.hpp"
 
 
 namespace metafun
@@ -138,6 +140,32 @@ namespace metafun
 
         std::puts("--------------------------------------");
     }
+
+    void enumeratePack_Test()
+    {
+        std::puts("--enumeratePack_Test--");
+
+        enumeratePack([](auto&& Idx, auto&& arg)
+             {
+               std::cout<<Idx<<", "<<arg<<'\n';
+             },
+             "metaFun", 2023, "Salim", 79.45);
+        std::puts("----");
+    }
+
+    void applyToIndex_Test()
+    {
+        std::puts("--applyToIndex_Test--");
+
+        apply_to_Index<5>( [](auto&& arg)
+                          {
+                              std::cout<<arg<<'\n';
+
+                          }, "salim", "didem", 1930, 19.45);
+
+
+    }
+
 
 
 
