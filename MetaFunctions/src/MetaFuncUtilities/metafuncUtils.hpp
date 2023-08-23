@@ -5,10 +5,9 @@
 #ifndef METAFUN_METAFUNCUTILS_HPP
 #define METAFUN_METAFUNCUTILS_HPP
 
-#include "metafunctionsPCH.hpp"
+#include "../metafunctionsPCH.hpp"
 
-namespace metafun
-{
+namespace metafun {
     void voidTest();
     void voidtCornerCases();
     void recursiveFind_LinearSearch();
@@ -20,38 +19,26 @@ namespace metafun
     void applyToIndex_Test();
 
     template<typename T>
-    struct TypeIdentity {using type = T;};
+    struct TypeIdentity {
+        using type = T;
+    };
 
-   template<typename TFirst, typename...>
-   struct void_t_Helper: TypeIdentity<TFirst> {};
+    template<typename TFirst, typename...>
+    struct void_t_Helper : TypeIdentity<TFirst> {};
 
-    template<typename...Ts>
+    template<typename... Ts>
     using void_t = typename void_t_Helper<void, Ts...>::type;
 
     // primary template; if the type is valid then this is selected
-    template<typename T, typename=void>
+    template<typename T, typename = void>
     struct Add_Lvalue_Reference : TypeIdentity<T> {};
 
     // specialization; if the type is valid but matches with T& then specialization will be selected
     template<typename T>
-    struct Add_Lvalue_Reference<T, void_t<T&>> : TypeIdentity<T&> {};
+    struct Add_Lvalue_Reference<T, void_t<T &>> : TypeIdentity<T &> {};
 
 
- } // end of namespace metafun
+}// end of namespace metafun
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#endif //METAFUN_METAFUNCUTILS_HPP
+#endif//METAFUN_METAFUNCUTILS_HPP

@@ -1,7 +1,10 @@
 #include "MetaFuncUtilities/metafuncUtils.hpp"
-
-int main()
-{
+// #include <../../build/_deps/asio-src/asio/include/asio.hpp>
+// #include <asio.hpp>
+#include <fmt/core.h>
+#include <fmt/os.h>
+#include <format>
+int main() {
     metafun::voidTest();
     metafun::voidtCornerCases();
     metafun::recursiveFind_LinearSearch();
@@ -11,5 +14,5 @@ int main()
     metafun::SearchWithInheritance_Struct();
     metafun::enumeratePack_Test();
     metafun::applyToIndex_Test();
-
+    fmt::print("hello fmt\n");
 }
