@@ -1,10 +1,13 @@
 #include "MetaFuncUtilities/metafuncUtils.hpp"
-// #include <../../build/_deps/asio-src/asio/include/asio.hpp>
-// #include <asio.hpp>
+#include <asio.hpp>
 #include <fmt/core.h>
 #include <fmt/os.h>
 #include <format>
+#include <range/v3/at.hpp>
+#include <range/v3/range/concepts.hpp>
 int main() {
+    // range-v3 works
+    using namespace ranges;
     metafun::voidTest();
     metafun::voidtCornerCases();
     metafun::recursiveFind_LinearSearch();

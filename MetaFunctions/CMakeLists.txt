@@ -87,4 +87,5 @@ target_link_libraries(metaFunLib PRIVATE metafunctionsPCH)
 add_executable(MetaFun src/metafunctions_Test.cpp)
 # if Ranges is used in another project as a library then make it INTERFACE or
 # PUBLIC if only Ranges needs the specified list then use PRIVATE
-target_link_libraries(MetaFun PRIVATE project_options metaFunLib asio fmt::fmt)
+target_link_libraries(MetaFun PRIVATE project_options metaFunLib asio fmt
+                                      range-v3)
