@@ -10,7 +10,7 @@ target_compile_features(project_options INTERFACE cxx_std_23)
 # add dependencies
 include(cmake/CPM.cmake)
 
-# cpmaddpackage("gh:fmtlib/fmt#7.1.3")
+cpmaddpackage("gh:fmtlib/fmt#7.1.3")
 cpmaddpackage("gh:chriskohlhoff/asio#asio-1-28-1@1.28.1")
 # find_package(asip REQUIRED)
 

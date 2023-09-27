@@ -18,4 +18,5 @@ int main() {
     metafun::enumeratePack_Test();
     metafun::applyToIndex_Test();
     fmt::print("hello fmt\n");
+    fmt::print("hello yoow\n");
 }
