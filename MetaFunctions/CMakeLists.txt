@@ -4,6 +4,16 @@ project(metaFunctions)
 set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
+add_compile_options(
+  -O1 -g -flto #[[ -S ]] 
+  #[[ -fsanitize=address ]] #[[ -fsanitize=memory ]]
+  #[[ -fno-omit-frame-pointer ]]
+)
+add_link_options(
+  -g -flto #[[ -S ]]
+  #[[ -fsanitize=address ]]
+)
+
 include(../cmake/warning.cmake)
 project_warnings()
 

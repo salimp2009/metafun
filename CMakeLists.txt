@@ -10,7 +10,7 @@ target_compile_features(project_options INTERFACE cxx_std_23)
 # add dependencies
 include(cmake/CPM.cmake)
 
-cpmaddpackage("gh:fmtlib/fmt#7.1.3")
+cpmaddpackage("gh:fmtlib/fmt#10.1.1")
 cpmaddpackage("gh:chriskohlhoff/asio#asio-1-28-1@1.28.1")
 # find_package(asip REQUIRED)
 
@@ -18,8 +18,7 @@ find_package(Threads REQUIRED)
 if(asio_ADDED)
   add_library(asio INTERFACE)
 
-  target_include_directories(asio SYSTEM
-                             INTERFACE ${asio_SOURCE_DIR}/asio/include)
+  target_include_directories(asio INTERFACE ${asio_SOURCE_DIR}/asio/include)
   message("asio is installed at : ${asio_SOURCE_DIR}/n")
   target_compile_definitions(asio INTERFACE ASIO_STANDALONE ASIO_NO_DEPRECATED)
 
